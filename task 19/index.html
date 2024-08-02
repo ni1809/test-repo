@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Cards</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container" id="movie-container"></div>
+
+    <script>
+        function fetchMovies() {
+            fetch('https://api.example.com/movies')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('movie-container');
+                    data.movies.forEach(movie => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `<h3>${movie.title}</h3><p>${movie.description}</p>`;
+                        container.appendChild(card);
+                    });
+                })
+                .catch(error => console.error('Error fetching movies:', error));
+        }
+
+        fetchMovies();
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Cards</title>
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container" id="card-container"></div>
+
+    <script>
+        function createCard(content) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = content;
+            return card;
+        }
+
+        function displayCards() {
+            const container = document.getElementById('card-container');
+            const cardContents = ['Card 1', 'Card 2', 'Card 3'];
+
+            cardContents.forEach(content => {
+                container.appendChild(createCard(content));
+            });
+        }
+
+        displayCards();
+    </script>
+</body>
+</html>
