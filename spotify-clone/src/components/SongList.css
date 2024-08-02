@@ -1,0 +1,15 @@
+.song-list {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  .song {
+    background-color: #121212;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  .song:hover {
+    background-color: #1db954;
+  }
+  
